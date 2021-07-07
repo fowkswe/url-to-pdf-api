@@ -17,7 +17,7 @@ async function createBrowser(opts) {
     browserOpts.executablePath = config.BROWSER_EXECUTABLE_PATH;
   }
   browserOpts.headless = !config.DEBUG_MODE;
-  browserOpts.args = ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none'];
+  browserOpts.args = ['--no-sandbox', '--disable-setuid-sandbox', '--font-render-hinting=none', '--force-color-profile=srgb'];
   if (!opts.enableGPU || navigator.userAgent.indexOf('Win') !== -1) {
     browserOpts.args.push('--disable-gpu');
   }
@@ -74,6 +74,7 @@ async function render(_opts = {}) {
 
   const browser = await createBrowser(opts);
   const page = await browser.newPage();
+  await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36');
 
   page.on('console', (...args) => logger.info('PAGE LOG:', ...args));
 
