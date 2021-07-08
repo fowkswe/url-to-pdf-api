@@ -170,7 +170,7 @@ async function render(_opts = {}) {
 
     if (opts.output === 'pdf') {
       await page.addStyleTag({
-          content: "@page:first {margin-top: 0;} body {margin-top: 2cm;}"
+          content: "@page:first {margin-top: 0;} body { margin-bottom: 2cm; };"
       });
       
       if (opts.pdf.fullPage) {
