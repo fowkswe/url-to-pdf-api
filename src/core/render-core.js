@@ -169,6 +169,10 @@ async function render(_opts = {}) {
     }
 
     if (opts.output === 'pdf') {
+      await page.addStyleTag({
+          content: "@page:first {margin-top: 0;} body {margin-top: 2cm;}"
+      });
+      
       if (opts.pdf.fullPage) {
         const height = await getFullPageHeight(page);
         opts.pdf.height = height;
