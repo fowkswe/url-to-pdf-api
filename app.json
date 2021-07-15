@@ -23,7 +23,7 @@
   "success_url": "/api/render?url=https://github.com/fowkswe/url-to-pdf-api/blob/master/README.md",
   "buildpacks": [
     {
-      "url": "https://github.com/jontewks/puppeteer-heroku-buildpack"
+      "url": "https://github.com/jontewks/heroku-buildpack-puppeteer-firefox"
     },
     {
       "url": "http://github.com/heroku/heroku-buildpack-nodejs.git"
