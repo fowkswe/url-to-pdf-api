@@ -76,6 +76,10 @@ async function render(_opts = {}) {
   const page = await browser.newPage();
   await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36');
 
+  const version = await page.browser().version();
+
+  logOpts(version);
+
   page.on('console', (...args) => logger.info('PAGE LOG:', ...args));
 
   page.on('error', (err) => {
